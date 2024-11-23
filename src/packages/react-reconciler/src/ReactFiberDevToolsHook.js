@@ -7,17 +7,17 @@
  * @flow
  */
 
-import type {Lane, Lanes} from './ReactFiberLane';
-import type {Fiber, FiberRoot} from './ReactInternalTypes';
-import type {ReactNodeList, Wakeable} from 'shared/ReactTypes';
-import type {EventPriority} from './ReactEventPriorities';
+import type { Lane, Lanes } from './ReactFiberLane';
+import type { Fiber, FiberRoot } from './ReactInternalTypes';
+import type { ReactNodeList, Wakeable } from 'shared/ReactTypes';
+import type { EventPriority } from './ReactEventPriorities';
 // import type {DevToolsProfilingHooks} from 'react-devtools-shared/src/backend/types';
 // TODO: This import doesn't work because the DevTools depend on the DOM version of React
 // and to properly type check against DOM React we can't also type check again non-DOM
 // React which this hook might be in.
 type DevToolsProfilingHooks = any;
 
-import {DidCapture} from './ReactFiberFlags';
+import { DidCapture } from './ReactFiberFlags';
 import {
   consoleManagedByDevToolsDuringStrictMode,
   enableProfilerTimer,
@@ -37,11 +37,11 @@ import {
   log,
   unstable_setDisableYieldValue,
 } from './Scheduler';
-import {setSuppressWarning} from 'shared/consoleWithStackDev';
-import {disableLogs, reenableLogs} from 'shared/ConsolePatchingDev';
+import { setSuppressWarning } from 'shared/consoleWithStackDev';
+import { disableLogs, reenableLogs } from 'shared/ConsolePatchingDev';
 
-declare const __REACT_DEVTOOLS_GLOBAL_HOOK__: Object | void;
-
+// declare const __REACT_DEVTOOLS_GLOBAL_HOOK__: Object | void;
+const __REACT_DEVTOOLS_GLOBAL_HOOK__ = {};
 let rendererID = null;
 let injectedHook = null;
 let injectedProfilingHooks: DevToolsProfilingHooks | null = null;
